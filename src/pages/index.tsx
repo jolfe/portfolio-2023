@@ -4,6 +4,7 @@ import styles from "@/styles/Home.module.css";
 import Nav from "../components/nav";
 import Link from "next/link";
 import Cards from "../components/cards";
+import { Button } from "@/components/button";
 
 export default function Home() {
   return (
@@ -22,7 +23,13 @@ export default function Home() {
         <div className={`w-full m-auto  pr-8 bg-black font-white`}>
           <Nav />
         </div>
-        <div className="bg-white">
+        <div className="bg-white flex flex-row  flex-1">
+          <Cards
+            title="title"
+            description="description"
+            image="image"
+            link="link"
+          />
           <Cards
             title="title"
             description="description"
@@ -30,6 +37,12 @@ export default function Home() {
             link="link"
           />
         </div>
+        <Button
+          active={true}
+          href={""}
+          onClick={() => alert("clicked")}
+          copy={"CTA"}
+        />
       </main>
     </>
   );
