@@ -26,7 +26,7 @@ export const Hero = (props: IHero) => {
         <div
           className={`flex font-black flex-1 p-2 text-left text-${props.color}`}
         >
-          <div>{props.title}</div>
+          <div className={`w-1/2 text-center`}>{props.title}</div>
         </div>
       </div>
 

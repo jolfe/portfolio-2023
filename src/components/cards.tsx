@@ -52,22 +52,22 @@ const Cards = (props: ICards) => {
       }}
     >
       <div
-        className={`flex-col text-black   border-black rounded justify-center w-1/2 m-auto mx-6 bg-white mb-8`}
+        className={`flex flex-col text-black border-black rounded justify-center w-80 h-72 m-auto mx-6 bg-white mb-8`}
       >
         <div
           className={`flex text-black font-xl justify-center align-baseline p-2 bg-olive border-b-4 h-12`}
         >
           <div className="m-auto text-white">{props.title}</div>
         </div>
-        <div
-          className={`flex justify-center text-center px-4 h-auto pt-2 font-bold `}
-        >
-          <div className="">{props.description}</div>
+        <div className={`flex justify-center text-center px-4 h-auto pt-2 `}>
+          <div className="border-b-2 border-spacing-4 pb-3 border-olive">
+            {props.description}
+          </div>
         </div>
         <div
           className={`flex m-auto justify-center text-center px-4 h-auto pt-2 `}
         >
-          <div className="flex m-auto text-center">{props.stack}</div>
+          <div className="flex m-auto text-left">{props.stack}</div>
         </div>
         {/* {props.stack && (
           <div

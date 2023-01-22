@@ -41,8 +41,8 @@ export default function Home() {
           style={{
             scaleX: scrollYProgress,
             transformOrigin: "center",
-            height: "10px",
-            backgroundColor: "gray",
+            height: "3px",
+            backgroundColor: "black",
           }}
         />
         <h1>
@@ -55,11 +55,20 @@ export default function Home() {
           bg={"bg-white"}
           header={"About me"}
         />
-        <div className="flex flex-col text-center m-auto">
+        <motion.div
+          className="progress-bar"
+          style={{
+            scaleX: scrollYProgress,
+            transformOrigin: "center",
+            height: "3px",
+            backgroundColor: "black",
+          }}
+        />
+        <div className="flex flex-col text-center m-auto bg-gray-200">
           <div className="flex flex-row m-auto flex-1">
-            <h1 className="font-bold text-2xl pb-3 m-auto">Projects</h1>
+            <h1 className="font-bold text-2xl py-5 pb-8 m-auto">Projects</h1>
           </div>
-          <div className="flex flex-row m-auto justify-between">
+          <div className="flex flex-row m-auto justify-around">
             <Cards
               title="cStaff"
               description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
@@ -77,26 +86,23 @@ export default function Home() {
               link="https://github.com/jolfe/cStaff"
               download="https://www.curseforge.com/minecraft/bukkit-plugins/cstaff/download"
             />
-
             <Cards
               title="Banking App"
-              description={
-                <>
-                  <h3>Node/MongoDB/React Banking App Challenge</h3>
-                  <div className="flex text-center justify-center">
-                    <ul
-                      className={`justify-center list-disc list-inside text-black text-left`}
-                    >
-                      <li>Mongoose</li>
-                      <li>Express</li>
-                      <li>bcrypt</li>
-                      <li>jsonwebtoken</li>
-                      <li>nodemon</li>
-                      <li>dotenv</li>
-                      <li>dinero.js</li>
-                    </ul>
-                  </div>
-                </>
+              description={`Node / MongoDB / React Banking App Challenge`}
+              stack={
+                <div className="flex text-center justify-center">
+                  <ul className={`list-disc list-inside text-black text-left`}>
+                    <li>Mongoose</li>
+                    <li>Express</li>
+                    <li>bcrypt</li>
+                    <li>jsonwebtoken</li>
+                  </ul>
+                  <ul className={`list-disc list-inside text-black text-left`}>
+                    <li>nodemon</li>
+                    <li>dotenv</li>
+                    <li>dinero.js</li>
+                  </ul>
+                </div>
               }
               image="image"
               link="https://github.com/jolfe/mern-ride-hitch"
