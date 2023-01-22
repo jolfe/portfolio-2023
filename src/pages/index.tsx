@@ -5,6 +5,10 @@ import Nav from "../components/nav";
 import Link from "next/link";
 import Cards from "../components/cards";
 import { Button } from "@/components/button";
+import { Hero } from "@/components/hero";
+import logo from "../vim.png";
+import { Section } from "@/components/section";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -19,29 +23,73 @@ export default function Home() {
         <div>
           <Link href="/home"> </Link>
         </div>
-        <div className={`w-full m-auto pt-8 bg-black`}> Socials </div>
-        <div className={`w-full m-auto  pr-8 bg-black font-white`}>
-          <Nav />
-        </div>
+        {/* <div className={`w-full m-auto pt-8 bg-black`}> Socials </div> */}
+        <Nav />
+        <Hero
+          title=""
+          image={logo}
+          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio vitae sequi itaque culpa exercitationem modi esse, voluptatum, a architecto facere nostrum et, atque incidunt suscipit saepe laudantium at ad fugit?"
+          color="black"
+          bg={`bg-gray-100`}
+        />
+        <Section
+          title="About me"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quam, quasi voluptate sequi ea tempore delectus dolores repellat cupiditate minima id facilis neque perferendis officia vel soluta quas error magnam."
+          color={"black"}
+          bg={"bg-white"}
+        />
         <div className="bg-white flex flex-row  flex-1">
           <Cards
-            title="title"
-            description="description"
+            title="cStaff"
+            description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
             image="image"
-            link="link"
+            linkMore="https://dev.bukkit.org/projects/cstaff"
+            link="https://github.com/jolfe/cStaff"
           />
           <Cards
-            title="title"
-            description="description"
+            title="Banking App"
+            description={
+              <>
+                <h3>Node/MongoDB/React</h3>
+                {["Node", "MongoDB", "React"].map((tech) => {
+                  {
+                    tech;
+                  }
+                })}
+              </>
+            }
             image="image"
-            link="link"
+            link="https://github.com/jolfe/mern-ride-hitch"
+          />
+          <Cards
+            title="Karen"
+            description={
+              <>
+                <h3>is a nerd</h3>
+                {["Node", "MongoDB", "React"].map((tech) => {
+                  {
+                    tech;
+                  }
+                })}
+              </>
+            }
+            image="image"
+            link="https://github.com/jolfe/mern-ride-hitch"
           />
         </div>
         <Button
           active={true}
-          href={""}
+          href={
+            "https://portfolio-buc.s3.us-east-2.amazonaws.com/logo.png?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEQaCXVzLWVhc3QtMSJGMEQCIHZpMPniNfzbgoB8XbodkxbdA3Po7XpMjnupID2gCwnDAiBNEZ0AQU2jWxfV0kS%2Bn%2FTWmP9RfRaNBU%2B6TR5aqmDohCrtAgit%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDUwOTU1NTQwNjQ5OSIModepCccWCjLmFbPUKsEC%2BuyH4YcSBEuqz8csdgcmCmYzFROWzWdpo9Kd9EVM%2FmcCoKas94UIuWYqlmg7KKVVSsnU5Is6h4mY0Db5ua5tGq1%2BKnAzDXj0CA94gLSjolAQnhAiVvf0ncjzCgs%2Bprm1oju6F2ctkGb7AMCTH4%2BMCN8QiOqNdzdQuVoHtQgUysV%2FmffuXg%2FB2%2BnfzGNcuYLVkywATSuhESrGdoIhaHiHmBibWx9hTEHrmRUYTicM7ZoAd6lc0loUb2kfa1hjhx1G7DdUD451xnKEuT6cgE79LCZzbCa0tXMBbkNJw1vQGgdkM0Su34LVNIDNPATAajdM4ckKQf%2FBCjs1GoRlVsdm3zF%2F7461KnV2QsYmBw5BPrhcmXXvB7m2omzAKj0pbWmqomfKXj55RCzD4IeF2u7N0%2F1V%2BlHDRlHkCn%2Fd7XMX094xMPqBsZ4GOrQCDs7sBA2lHrtZHLL%2BND86tHDTMrMfa4qzBYlTh7oMvQ0VOzs6VLu3Bd5YhtSh8LfC5kXr8TcLGqkL8GxKAyNTmsU3OVErJEevIH%2BJmU6%2BKJv20JASod%2BuRJh%2FvT3EWgo2Oe4bJWvzdWAS4N%2Fs%2B867cKef2rZNOtoEDnSgJbDO5UY9NZrvaTTN4ne3PR66NfVQlmNZRwVHgF96Fwa586SWSrz87BZeiJuwoXLY7KA3Lp1aRzjAtq4%2FwggT4ZA2ij9JM%2ByJPDC9L9H5O9ZsgfzqPyc73iY97lq8EbMilZ4Z0stJnnbOWdG75pbCEdLw6vgd2sMEaWuqC5t6tGQXVXWUWdbra0nyNsDlz1tuasO%2FrQ5PYL5UziZRQh1zoENc7FjWSoDHqR7VeXneAlPd3pPqXpnGaSQ%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230121T200239Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAXNI66O2RZ2KBITFV%2F20230121%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=148dd02e0b7e5f7f92e8dd0dfd814a0a7f90505f6338c496e9540f26369ea1bc"
+          }
           onClick={() => alert("clicked")}
           copy={"CTA"}
+        />
+        <Footer
+          email="contact@jolfe.com"
+          github="@jolfe"
+          links={["Home", "About", "Projects", "Contact"]}
+          linkedIn="https://www.linkedin.com/in/jackwolfe/"
         />
       </main>
     </>
