@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import globals from "../styles/globals.module.css";
+import styles from "@/styles/Home.module.css";
 
 interface ICards {
   title: string;
@@ -10,6 +11,8 @@ interface ICards {
   link?: string;
   linkMore?: string;
   subtitle?: string;
+  download?: string;
+  stack?: any;
 }
 
 const Cards = (props: ICards) => {
@@ -39,83 +42,63 @@ const Cards = (props: ICards) => {
 
   useEffect(() => {}, []);
   const [selectedId, setSelectedId] = useState(0);
-  interface items {
-    title: string;
-    id: number;
-    description: string;
-    image: string;
-    subtitle: string;
-    link: string;
-    linkMore: string;
-  }
-  const items: items[] = [
-    {
-      title: "Home",
-      id: 0,
-      description: "About me",
-      image: "/images/hero.jpg",
-      subtitle: "Projects I have worked on",
-      link: "/",
-      linkMore: "/",
-    },
-    {
-      title: "About",
-      id: 1,
-      description: "About me",
-      image: "/images/hero.jpg",
-      subtitle: "Projects I have worked on",
-      link: "/about",
-      linkMore: "/about",
-    },
-  ];
 
   return (
-    <div
-      className={`flex-col text-black m-auto w-1/2 border-2 border-black rounded mx-6 bg-white mb-8`}
+    <motion.div
+      whileHover={{ scale: [null, 1.3, 1.4] }}
+      transition={{
+        duration: 0.1,
+        ease: "easeInOut",
+      }}
     >
       <div
-        className={`flex text-black font-bold font-xl justify-center align-baseline p-2 bg-olive border-b-4 border-gray-600 h-12`}
+        className={`flex-col text-black   border-black rounded justify-center w-1/2 m-auto mx-6 bg-white mb-8`}
       >
-        <div className="m-auto text-white">{props.title}</div>
-      </div>
-      <div className={`flex justify-center p-4 h-48 `}>
-        <div>{props.description}</div>
-      </div>
-      <div className="flex flex-row justify-center p-2 h-12">
-        {props.link && (
-          <div className={`flex underline justify-center p-2 h-12`}>
-            <Link href={props.link}>GitHub</Link>
+        <div
+          className={`flex text-black font-xl justify-center align-baseline p-2 bg-olive border-b-4 h-12`}
+        >
+          <div className="m-auto text-white">{props.title}</div>
+        </div>
+        <div
+          className={`flex justify-center text-center px-4 h-auto pt-2 font-bold `}
+        >
+          <div className="">{props.description}</div>
+        </div>
+        <div
+          className={`flex m-auto justify-center text-center px-4 h-auto pt-2 `}
+        >
+          <div className="flex m-auto text-center">{props.stack}</div>
+        </div>
+        {/* {props.stack && (
+          <div
+            className={`flex flex-row justify-center text-center p-2 h-2 mb-4`}
+          >
+            {props.stack.map((item, index) => (
+              <div className={`flex justify-center p-2 h-12`} key={index}>
+                <div className="m-auto text-black">{`- ${item}`}</div>
+              </div>
+            ))}
           </div>
-        )}
-        {props.linkMore && (
-          <div className={`flex underline justify-center p-2 h-12`}>
-            <Link href={props.linkMore}>Read More</Link>
-          </div>
-        )}
+        )} */}
+        <div className="flex flex-row justify-center p-2 h-12">
+          {props.link && (
+            <div className={`flex underline justify-center p-2 h-12`}>
+              <Link href={props.link}>GitHub</Link>
+            </div>
+          )}
+          {props.linkMore && (
+            <div className={`flex underline justify-center p-2 h-12`}>
+              <Link href={props.linkMore}>Read More</Link>
+            </div>
+          )}
+          {props.download && (
+            <div className={`flex underline justify-center p-2 h-12`}>
+              <Link href={props.download}>Download</Link>
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        {items &&
-          items.map((item) => (
-            <motion.div
-              layoutId={String(item.id)}
-              onClick={() => setSelectedId(item?.id)}
-              key={item.id}
-            >
-              <motion.h5>{item.subtitle}</motion.h5>
-              <motion.h2>{item?.title}</motion.h2>
-            </motion.div>
-          ))}
-      </div>
-      <AnimatePresence>
-        {selectedId && (
-          <motion.div layoutId={String(selectedId)}>
-            <motion.h5>{items[0].subtitle}</motion.h5>
-            <motion.h2>{String(items[0].title)}</motion.h2>
-            <motion.button onClick={() => setSelectedId(selectedId)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 

@@ -9,8 +9,12 @@ import { Hero } from "@/components/hero";
 import logo from "../vim.png";
 import { Section } from "@/components/section";
 import { Footer } from "@/components/footer";
+import { motion, useScroll } from "framer-motion";
+import handler from "./api/hello";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <>
       <Head>
@@ -26,56 +30,79 @@ export default function Home() {
         {/* <div className={`w-full m-auto pt-8 bg-black`}> Socials </div> */}
         <Nav />
         <Hero
-          title=""
+          title="Web Development Services"
           image={logo}
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio vitae sequi itaque culpa exercitationem modi esse, voluptatum, a architecto facere nostrum et, atque incidunt suscipit saepe laudantium at ad fugit?"
+          description="My name is Jack Wolfe. I am a passionate Software Engineer with expertise(s) in technologies such as: React, Next.js, Node.js, Express, MongoDB, SQL, and more. I am  available for freelance work. Feel free to contact me for more information."
           color="black"
           bg={`bg-gray-100`}
         />
+        <motion.div
+          className="progress-bar"
+          style={{
+            scaleX: scrollYProgress,
+            transformOrigin: "center",
+            height: "10px",
+            backgroundColor: "gray",
+          }}
+        />
+        <h1>
+          <code></code>
+        </h1>
         <Section
           title="About me"
           description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quam, quasi voluptate sequi ea tempore delectus dolores repellat cupiditate minima id facilis neque perferendis officia vel soluta quas error magnam."
           color={"black"}
           bg={"bg-white"}
+          header={"About me"}
         />
-        <div className="bg-white flex flex-row  flex-1">
-          <Cards
-            title="cStaff"
-            description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
-            image="image"
-            linkMore="https://dev.bukkit.org/projects/cstaff"
-            link="https://github.com/jolfe/cStaff"
-          />
-          <Cards
-            title="Banking App"
-            description={
-              <>
-                <h3>Node/MongoDB/React</h3>
-                {["Node", "MongoDB", "React"].map((tech) => {
-                  {
-                    tech;
-                  }
-                })}
-              </>
-            }
-            image="image"
-            link="https://github.com/jolfe/mern-ride-hitch"
-          />
-          <Cards
-            title="Karen"
-            description={
-              <>
-                <h3>is a nerd</h3>
-                {["Node", "MongoDB", "React"].map((tech) => {
-                  {
-                    tech;
-                  }
-                })}
-              </>
-            }
-            image="image"
-            link="https://github.com/jolfe/mern-ride-hitch"
-          />
+        <div className="flex flex-col text-center m-auto">
+          <div className="flex flex-row m-auto flex-1">
+            <h1 className="font-bold text-2xl pb-3 m-auto">Projects</h1>
+          </div>
+          <div className="flex flex-row m-auto justify-between">
+            <Cards
+              title="cStaff"
+              description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
+              stack={
+                <>
+                  <ul className={`list-disc list-inside text-black text-left`}>
+                    <li>Bukkit API</li>
+                    <li>Java</li>
+                    <li>Maven</li>
+                  </ul>
+                </>
+              }
+              image="image"
+              linkMore="https://dev.bukkit.org/projects/cstaff"
+              link="https://github.com/jolfe/cStaff"
+              download="https://www.curseforge.com/minecraft/bukkit-plugins/cstaff/download"
+            />
+
+            <Cards
+              title="Banking App"
+              description={
+                <>
+                  <h3>Node/MongoDB/React Banking App Challenge</h3>
+                  <div className="flex text-center justify-center">
+                    <ul
+                      className={`justify-center list-disc list-inside text-black text-left`}
+                    >
+                      <li>Mongoose</li>
+                      <li>Express</li>
+                      <li>bcrypt</li>
+                      <li>jsonwebtoken</li>
+                      <li>nodemon</li>
+                      <li>dotenv</li>
+                      <li>dinero.js</li>
+                    </ul>
+                  </div>
+                </>
+              }
+              image="image"
+              link="https://github.com/jolfe/mern-ride-hitch"
+            />
+          </div>
+          {/* s */}
         </div>
         <Button
           active={true}

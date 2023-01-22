@@ -8,6 +8,7 @@ interface ISection {
   link?: string;
   color: string;
   children?: any;
+  header?: string;
 }
 
 export const Section = (props: ISection) => {

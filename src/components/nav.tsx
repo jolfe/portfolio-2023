@@ -8,11 +8,13 @@ export default function Nav() {
       className={`w-full flex justify-between text-white bg-olive px-12 py-4`}
     >
       <div className={`flex justify-start pl-4`}>
-        <h1
-          className={`text-start font-extrabold tracking-wide text-xl align-middle`}
-        >
-          jolfe
-        </h1>
+        <Link href="/">
+          <h1
+            className={`text-start font-extrabold tracking-wide text-xl align-middle`}
+          >
+            jolfe
+          </h1>
+        </Link>
       </div>
       {/* <Image
         className="m-0 justify-start pl-4"
