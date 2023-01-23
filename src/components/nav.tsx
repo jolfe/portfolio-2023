@@ -1,11 +1,21 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import NavLink from "./navLink";
 
 export default function Nav() {
+  const [selected, setSelected] = React.useState("/");
+  useEffect(() => {
+    setSelected(window.location.pathname);
+  }, []);
+
+  const handleActiveLink = () => {
+    setSelected(window.location.pathname);
+  };
+
   return (
     <nav
-      className={`w-full flex justify-between text-white bg-olive px-12 py-4`}
+      className={`w-full flex justify-between text-white bg-olive px-12 py-4 overflow-hidden`}
     >
       <div className={`flex justify-start pl-4`}>
         <Link href="/">
@@ -24,19 +34,21 @@ export default function Nav() {
         height={120}
       /> */}
       <ul className="flex font-bold justify-between gap-4">
-        <li className="mt-2 border-b-2">
-          <Link href="/">HOME</Link>
+        <li className={`mt-2`}>
+          <NavLink active={true} name={"HOME"} href="/" />
         </li>
         <li className="mt-2">
-          <Link href="/about">ABOUT</Link>
+          <NavLink name={"PROJECTS"} href="/projects" />
         </li>
         <li className="mt-2">
-          <Link href="/contact">CONTACT</Link>
+          <NavLink name={"CONTACT"} href="/contact" />
         </li>
         <li className="mt-2">
-          <Link href="/work">WORK</Link>
+          <NavLink name={"WORK"} href="/work" />
         </li>
       </ul>
     </nav>
   );
 }
+
+const links = ["Home", "Projects", "Contact", "Work"];

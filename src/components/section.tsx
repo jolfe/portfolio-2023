@@ -15,7 +15,7 @@ export const Section = (props: ISection) => {
   return (
     <>
       <div
-        className={`flex-col font-white m-auto w-full p-12 mb-4 ${
+        className={`flex-col font-white m-auto w-full p-12 pb-4 ${
           props.bg ? props.bg : "bg-slate-500"
         } `}
       >

@@ -68,7 +68,7 @@ export default function Home() {
           <div className="flex flex-row m-auto flex-1">
             <h1 className="font-bold text-2xl py-5 pb-8 m-auto">Projects</h1>
           </div>
-          <div className="flex flex-row m-auto justify-around">
+          <div className=" flex lg:flex-row md:flex-col m-auto justify-around sm:flex-col ">
             <Cards
               title="cStaff"
               description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
@@ -107,8 +107,24 @@ export default function Home() {
               image="image"
               link="https://github.com/jolfe/mern-ride-hitch"
             />
+            <Cards
+              title="cStaff"
+              description="Minecraft server plugin forged with Bukkit API, intended to concisely display customizable lists of online users"
+              stack={
+                <>
+                  <ul className={`list-disc list-inside text-black text-left`}>
+                    <li>Bukkit API</li>
+                    <li>Java</li>
+                    <li>Maven</li>
+                  </ul>
+                </>
+              }
+              image="image"
+              linkMore="https://dev.bukkit.org/projects/cstaff"
+              link="https://github.com/jolfe/cStaff"
+              download="https://www.curseforge.com/minecraft/bukkit-plugins/cstaff/download"
+            />
           </div>
-          {/* s */}
         </div>
         <Button
           active={true}

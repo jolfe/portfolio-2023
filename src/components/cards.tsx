@@ -18,15 +18,19 @@ interface ICards {
 const Cards = (props: ICards) => {
   //card hover trigger animation
   const [hover, setHover] = useState(false);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setMobile(true);
+    }
+    console.log(window.innerWidth);
+  }, []);
 
   //card hover function to trigger animation
   const handleHover = () => {
     setHover(!hover);
   };
-
-  //array if cards
-
-  //animation framer motion
 
   const animation = {
     hidden: { opacity: 0, scale: 0.5 },
@@ -40,9 +44,6 @@ const Cards = (props: ICards) => {
     },
   };
 
-  useEffect(() => {}, []);
-  const [selectedId, setSelectedId] = useState(0);
-
   return (
     <motion.div
       whileHover={{ scale: [null, 1.3, 1.4] }}
@@ -52,7 +53,7 @@ const Cards = (props: ICards) => {
       }}
     >
       <div
-        className={`flex flex-col text-black border-black rounded justify-center w-80 h-72 m-auto mx-6 bg-white mb-8`}
+        className={`flex flex-col text-black border-black rounded justify-center w-80 h-72 m-auto mx-6 bg-white mb-8 sm:overflow-hidden`}
       >
         <div
           className={`flex text-black font-xl justify-center align-baseline p-2 bg-olive border-b-4 h-12`}
